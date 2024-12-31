@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Stunning Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">StunningSite</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="container">
+            <h1 class="main-title">Welcome to Your Stunning Website</h1>
+            <p class="subtitle">Where Creativity Meets Innovation</p>
+            <a href="#about" class="cta-button" id="exploreButton">Explore More</a>
+        </div>
+    </header>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We create websites that blend visual excellence with cutting-edge technology. Explore our services and see what makes us unique.</p>
+            <div class="about-stats">
+                <div class="stat">
+                    <h3>10+</h3>
+                    <p>Years of Experience</p>
+                </div>
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat">
+                    <h3>300+</h3>
+                    <p>Happy Clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <i class="fas fa-paint-brush service-icon"></i>
+                    <h3>Web Design</h3>
+                    <p>Elegant and modern designs tailored to your brand.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-code service-icon"></i>
+                    <h3>Development</h3>
+                    <p>Fast, responsive, and secure coding for seamless performance.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-film service-icon"></i>
+                    <h3>Animations</h3>
+                    <p>Interactive animations that engage and captivate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>Our Portfolio</h2>
+            <p>Take a look at some of our most recent and proudest projects.</p>
+            <div class="portfolio-gallery">
+                <div class="gallery-item"><img src="project1.jpg" alt="Project 1"><span>Project 1</span></div>
+                <div class="gallery-item"><img src="project2.jpg" alt="Project 2"><span>Project 2</span></div>
+                <div class="gallery-item"><img src="project3.jpg" alt="Project 3"><span>Project 3</span></div>
+                <div class="gallery-item"><img src="project4.jpg" alt="Project 4"><span>Project 4</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <div class="team-cards">
+                <div class="team-member">
+                    <img src="team1.jpg" alt="Team Member">
+                    <h3>Jane Doe</h3>
+                    <p>CEO & Founder</p>
+                </div>
+                <div class="team-member">
+                    <img src="team2.jpg" alt="Team Member">
+                    <h3>John Smith</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="team3.jpg" alt="Team Member">
+                    <h3>Emily White</h3>
+                    <p>Creative Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Stunning Website. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section");
+            sections.forEach(section => {
+                gsap.from(section, {
+                    duration: 1,
+                    opacity: 0,
+                    y: 50,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%",
+                        toggleActions: "play none none reset"
+                    }
+                });
+            });
+
+            const exploreButton = document.getElementById("exploreButton");
+            exploreButton.addEventListener("click", (e) => {
+                e.preventDefault();
+                gsap.to(window, {
+                    duration: 1.5,
+                    scrollTo: "#about",
+                    ease: "power2.inOut"
+                });
+            });
+
+            const navLinks = document.querySelectorAll(".nav-links a");
+            navLinks.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const target = link.getAttribute("href");
+                    gsap.to(window, {
+                        duration: 1.5,
+                        scrollTo: target,
+                        ease: "power2.inOut"
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
